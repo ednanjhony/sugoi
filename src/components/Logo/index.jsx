@@ -3,7 +3,9 @@ import { Container } from './styles'
 export function Logo() {
   return (
     <Container>
-      <h1>Sugoi *o*</h1>
+      <a href="/">
+        <h1>Sugoi *o*</h1>
+      </a>
     </Container>
   )
 }

@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
 
+  
 `;
 
 export const Header = styled.header`
@@ -24,8 +25,6 @@ export const Header = styled.header`
       padding: 0 1rem;
     }
   }
-;
-  
 
   .nav {
     width: 100%;
@@ -43,6 +42,9 @@ export const Header = styled.header`
     margin-top: 1rem;
   }
 `;
+  
+
+
 
 export const List = styled.ul`
   width: 50%;

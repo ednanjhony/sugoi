@@ -5,7 +5,7 @@ export function Navigation() {
     <Container>
       <ul>
         <li>
-          <a href="#">Animes</a>
+          <a href="/animes">Animes</a>
         </li>
         <li>
           <a href="#">Forum</a>

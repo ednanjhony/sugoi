@@ -12,7 +12,7 @@ import { Divider } from '../../components/Divider';
 import { Container, Header, List, Content, Box} from './styles';
 import { AnimeOfWeek } from '../../components/AnimeOfWeek';
 
-export function Home() {
+export default function Home() {
   const [ animeInfo, setAnimeInfo ] = useState({});
   const [ animes, setAnimes ] = useState('');
   const [ isModalOpen, setIsModalOpen ] = useState(false);
@@ -69,13 +69,14 @@ export function Home() {
         isOpen={isModalOpen}
         onRequestClose={handleCloseModal}
         className="react-modal-content"
+        overlayClassName="react-modal-overlay"
       >
         { animeInfo.data && (
         <List>
           {animeInfo.data.map(anime => (
             <li key={anime.id}>
               <img src={anime.attributes.posterImage.tiny} alt="animes" />
-              {anime.attributes.canonicalTitle}
+              <h4>{anime.attributes.canonicalTitle}</h4>
             </li>
           ))}
         </List>
@@ -84,7 +85,7 @@ export function Home() {
 
       <Content>
 				<Box>
-					<h2>Welcome, We hope you enjoy your favorite anime.</h2>
+					<h2>Welcome, we are hope you enjoy your favorite anime.</h2>
 
 					<BoxImage />
 
