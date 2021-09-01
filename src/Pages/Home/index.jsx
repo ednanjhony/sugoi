@@ -85,7 +85,7 @@ export default function Home() {
 
       <Content>
 				<Box>
-					<h2>Welcome, we are hope you enjoy your favorite anime.</h2>
+					<h2>Welcome, we hope you enjoy your favorite anime.</h2>
 
 					<BoxImage />
 
