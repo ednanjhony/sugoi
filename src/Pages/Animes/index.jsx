@@ -22,6 +22,8 @@ export function Animes() {
     setIsModalOpen(false);
   }
 
+  
+
   useEffect(() => {
     if (animes) {
       fetch(`https://kitsu.io/api/edge/anime?filter[text]=${animes}`)
@@ -86,7 +88,8 @@ export function Animes() {
           
           <AnimesCategory />
 
-          <Divider />
+
+
 
 				</Box>
 			
