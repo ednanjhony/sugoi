@@ -1,28 +1,79 @@
-import { Container } from './styles';
+import { useEffect, useState } from 'react';
+import { Divider } from '../Divider';
+import { Container, Categories, AnimesList, RadioBox } from './styles';
 
 export function AnimesCategory() {
+  const [ animesCategory, setAnimesCategory ] = useState({});
+  const [ type, setType ] = useState('all');
+
+
+  useEffect(() => {
+    fetch(`https://kitsu.io/api/edge/anime?filter[categories]=${type}`)
+      .then((response) => response.json())
+      .then((response) => {
+        setAnimesCategory(response)
+        console.log(response)
+      })
+  }, [type])
+
   return (
     <Container>
-      <li>
-        <a href="#">
+      <Categories>
+
+        <RadioBox
+          type="button"
+          onClick={() => { setType('all') }}
+          isActive={type === 'all'}
+        >
+          All
+        </RadioBox>
+
+        <RadioBox
+          type="button"
+          onClick={() => { setType('adventure') }}
+          isActive={type === 'adventure'}
+        >
           Adventure
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          Shounen
-        </a>
-      </li>
-      <li>
-        <a href="#">
+        </RadioBox>
+
+        <RadioBox
+          type="button"
+          onClick={() => { setType('seinen') }}
+          isActive={type === 'seinen'}
+        >
           Seinen
-        </a>
-      </li>
-      <li>
-        <a href="#">
+        </RadioBox>
+
+        <RadioBox
+          type="button"
+          onClick={() => { setType('shoujo') }}
+          isActive={type === 'shoujo'}
+        >
           Shoujo
-        </a>
-      </li>
+        </RadioBox>
+
+        <RadioBox
+          type="button"
+          onClick={() => { setType('Shounen') }}
+          isActive={type === 'Shounen'}
+        >
+          Shounen
+        </RadioBox>
+      </Categories>
+
+      <Divider />
+
+      {animesCategory.data && (
+      <AnimesList>
+        {animesCategory.data.map(anime => (
+          <li key={anime.id}>
+            <img src={anime.attributes.posterImage.tiny} alt={anime.attributes.canonicalTitle} />
+            <h4>{anime.attributes.canonicalTitle}</h4>
+          </li>
+        ))}
+      </AnimesList>
+      )}
+      
     </Container>
   )
 }

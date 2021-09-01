@@ -1,22 +1,31 @@
 import styled from 'styled-components';
 
-export const Container = styled.ul`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
-  list-style: none;
+  flex-direction: column;
 
-  li {
-    margin: 1rem;
-    
-    a {
-      text-decoration: none;
-      color: #ffccbc;
-      font-weight: bold;
-        transition: .2s;
+ 
+`;
 
-        &:hover {
-          color: #ff7043;
-        }
-    }
-  }
+export const Categories = styled.div`
+  display: flex;
+  justify-content: center;
+
+ 
+`;
+
+export const RadioBox = styled.button`
+  padding: .5rem;
+  margin-right: 1rem;
+  border: 0;
+  color: #ff7043;
+  font-weight: bold;
+
+  background: ${(props) => props.isActive ? '#ffccbc' : 'transparent'}
+`;
+
+export const AnimesList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 `;
