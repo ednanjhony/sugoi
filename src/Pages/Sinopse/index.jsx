@@ -1,15 +1,6 @@
-import { useEffect, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
-import { Logo } from '../../components/Logo';
-import { Navigation } from '../../components/Navigation';
-import { SearchInput } from '../../components/SearchInput';
-import { Container, List, Header, Content, Box } from './styles';
+import { Container } from './styles';
 
-import Modal from 'react-modal';
-import { Divider } from '../../components/Divider';
-import { AnimesCategory } from '../../components/AnimesCategory';
-
-export function Animes() {
+export function Sinopse() {
   const [ animeInfo, setAnimeInfo ] = useState({});
   const [ animes, setAnimes ] = useState('');
   const [ isModalOpen, setIsModalOpen ] = useState(false);
@@ -22,7 +13,7 @@ export function Animes() {
     setIsModalOpen(false);
   }
 
-  
+  console.log(animes)
 
   useEffect(() => {
     if (animes) {
@@ -82,15 +73,10 @@ export function Animes() {
 
       <Content>
 				<Box>
-					<h2>Categories</h2>
-
-					<Divider />
-          
-          <AnimesCategory />
-
+					
 				</Box>
 			
       </Content>
+      
     </Container>
-  );
 }

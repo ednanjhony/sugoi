@@ -4,7 +4,7 @@ export function AnimeOfWeek() {
   return (
     <Container>
       <div className="message">
-        <h3>This week we recommend you watch Boku no Hero</h3>
+        <h3>This week we are recommend you watch Boku no Hero</h3>
       </div>
 
       <div className="anime">
