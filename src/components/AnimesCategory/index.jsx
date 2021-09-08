@@ -1,6 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Divider } from '../Divider';
-import { Container, Categories, AnimesList, RadioBox } from './styles';
+import { 
+  Container, 
+  Categories, 
+  AnimesList, 
+  RadioBox,
+  AnimeContainer
+} from './styles';
 
 export function AnimesCategory() {
   const [ animesCategory, setAnimesCategory ] = useState({});
@@ -63,16 +69,19 @@ export function AnimesCategory() {
 
       <Divider />
 
-      {animesCategory.data && (
-      <AnimesList>
-        {animesCategory.data.map(anime => (
-          <li key={anime.id}>
-            <img src={anime.attributes.posterImage.tiny} alt={anime.attributes.canonicalTitle} />
-            <h4>{anime.attributes.canonicalTitle}</h4>
-          </li>
-        ))}
-      </AnimesList>
-      )}
+      <AnimeContainer>
+        {animesCategory.data && (
+        <AnimesList>
+          {animesCategory.data.map(anime => (
+            <li key={anime.id}>
+              <img src={anime.attributes.posterImage.tiny} alt={anime.attributes.canonicalTitle} />
+              <h4>{anime.attributes.canonicalTitle}</h4>
+            </li>
+          ))}
+        </AnimesList>
+        )}
+      </AnimeContainer>
+      
       
     </Container>
   )

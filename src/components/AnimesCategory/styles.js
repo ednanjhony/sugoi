@@ -5,14 +5,19 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
- 
 `;
 
 export const Categories = styled.div`
   display: flex;
   justify-content: center;
 
- 
+  @media(max-width: 801px) {
+    button {
+      font-size: 10px;
+      margin-left: 0;
+      padding: 0;
+    }
+  }
 `;
 
 export const RadioBox = styled.button`
@@ -25,13 +30,32 @@ export const RadioBox = styled.button`
   background: ${(props) => props.isActive ? '#ffccbc' : 'transparent'}
 `;
 
-export const AnimesList = styled.ul`
+export const AnimeContainer = styled.div`
   width: 50%;
+  margin: 0 auto;
+  height: 500px;
+`;
+
+export const AnimesList = styled.ul`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 2.5rem;
   list-style: none;
   margin: 0 auto;
+
+  @media(max-width: 801px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    img {
+      width: 60px;
+      height: 80px;
+    }
+  }
+
+  @media(max-width: 600px) {
+    grid-template-columns: repeat(1, fr);
+  }
 
   h4 {
     color: #ff7043;
