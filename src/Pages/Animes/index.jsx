@@ -9,6 +9,7 @@ import Modal from 'react-modal';
 import { Divider } from '../../components/Divider';
 import { AnimesCategory } from '../../components/AnimesCategory';
 
+
 export function Animes() {
   const [ animeInfo, setAnimeInfo ] = useState({});
   const [ animes, setAnimes ] = useState('');
@@ -26,7 +27,9 @@ export function Animes() {
 
   useEffect(() => {
     if (animes) {
-      fetch(`https://kitsu.io/api/edge/anime?filter[text]=${animes}`)
+      fetch(
+        `https://kitsu.io/api/edge/anime?filter[text]=${animes}`
+      )
         .then((response) => response.json())
         .then((response) => {
           setAnimeInfo(response)
@@ -89,8 +92,11 @@ export function Animes() {
           <AnimesCategory />
 
 				</Box>
+
 			
       </Content>
+      
+      
     </Container>
   );
 }

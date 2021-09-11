@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Divider } from '../Divider';
+import { Pagination } from '../Pagination';
 import { 
   Container, 
   Categories, 
@@ -8,13 +9,18 @@ import {
   AnimeContainer
 } from './styles';
 
+const LIMIT = 12;
+
+
 export function AnimesCategory() {
   const [ animesCategory, setAnimesCategory ] = useState({});
   const [ type, setType ] = useState('all');
+  const [ offset, setOffset ] = useState(0);
+
 
 
   useEffect(() => {
-    fetch(`https://kitsu.io/api/edge/anime?filter[categories]=${type}`)
+    fetch(`https://kitsu.io/api/edge/anime?filter[categories]=${type}&page[limit]=${LIMIT}`)
       .then((response) => response.json())
       .then((response) => {
         setAnimesCategory(response)
@@ -80,7 +86,18 @@ export function AnimesCategory() {
           ))}
         </AnimesList>
         )}
+
+        {animesCategory.meta && (
+          <Pagination 
+            limit={LIMIT} 
+            total={animesCategory.meta.count} 
+            offset={offset}
+            setOffset={setOffset} 
+          />
+        )}
       </AnimeContainer>
+
+      
       
       
     </Container>

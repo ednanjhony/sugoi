@@ -64,6 +64,19 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  overflow: auto;
+
+  ::-webkit-scrollbar-track {
+    background-color: #eeeeee ;
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background: #ff7043;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff7043;
+}
 
   h2 {
     margin: 1rem auto;

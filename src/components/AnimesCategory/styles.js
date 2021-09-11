@@ -31,9 +31,11 @@ export const RadioBox = styled.button`
 `;
 
 export const AnimeContainer = styled.div`
-  width: 50%;
-  margin: 0 auto;
+  width: 100%;
   height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const AnimesList = styled.ul`
@@ -42,6 +44,13 @@ export const AnimesList = styled.ul`
   grid-gap: 2.5rem;
   list-style: none;
   margin: 0 auto;
+
+  li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
   @media(max-width: 801px) {
     grid-template-columns: repeat(2, 1fr);
