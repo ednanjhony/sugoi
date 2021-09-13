@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import qs from 'qs';
+
 import { Divider } from '../Divider';
 import { Pagination } from '../Pagination';
 import { 
@@ -20,13 +22,20 @@ export function AnimesCategory() {
 
 
   useEffect(() => {
-    fetch(`https://kitsu.io/api/edge/anime?filter[categories]=${type}&page[limit]=${LIMIT}`)
+    const query = {
+      page: {
+        limit: LIMIT,
+        offset,
+      }
+    };
+
+    fetch(`https://kitsu.io/api/edge/anime?filter[categories]=${type}&${qs.stringify(query)}`)
       .then((response) => response.json())
       .then((response) => {
         setAnimesCategory(response)
         console.log(response)
       })
-  }, [type])
+  }, [type, offset])
 
   return (
     <Container>
