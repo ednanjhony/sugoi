@@ -7,6 +7,11 @@ export const Container = styled.nav`
 
     li {
       margin: 0 1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 12px;
+        margin: 0 .5rem;
+      }
 
       a {
         text-decoration: none;

@@ -20,7 +20,7 @@ export const Header = styled.header`
 
     button {
       background: #fff;
-      border-left: 0;
+      border: 0;
       outline: none;
       padding: 0 1rem;
     }
@@ -73,7 +73,13 @@ export const Box = styled.div`
   margin: 0 auto;
 
   h2 {
-    margin: 1rem auto;
+    text-align: center;
     color: #ff7043;
+    margin-top: 1rem;
+
+    @media(max-width: 1100px) {
+      font-size: 16px;
+      margin: .5rem;
+    }
   }
 `;

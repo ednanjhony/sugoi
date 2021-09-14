@@ -8,10 +8,15 @@ export const Container = styled.div`
 
   .message {
     
-
     h3 {
       color: #ff7043;
       font-weight: bold;
+      text-align: center;
+
+      @media (max-width: 920px) {
+        font-size: 16px;
+        margin: .5rem;
+      }
     }
   }
 
@@ -21,6 +26,18 @@ export const Container = styled.div`
     margin-top: 3rem;
     background: #ff7043;
     padding: 1rem;
+
+    @media(max-width: 481px) {
+      flex-direction: column;   
+
+      a {
+        img {
+          width: 100%;
+          height: 100px;
+          object-fit: cover;
+        }
+      }
+    }
 
     a {
       img {

@@ -9,5 +9,6 @@ export const Container = styled.div`
     height: 400px;
     object-fit: cover;
     margin: 1rem auto;
+
   }
 `;
